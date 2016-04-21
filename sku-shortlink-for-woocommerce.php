@@ -3,7 +3,7 @@
  * Plugin Name:       SKU Shortlink For WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/SKU-Shortlink-For-WooCommerce/
  * Description:       SKU Shortlink For WooCommerce
- * Version:           0.1
+ * Version:           0.2
  * Author:            Varun Sridharan
  * Author URI:        http://varunsridharan.in
  * Text Domain:       sku-shortlink-for-woocommerce
@@ -18,7 +18,7 @@ class SKU_Shortlink_For_WooCommerce {
 	/**
 	 * @var string
 	 */
-	public $version = '0.1';
+	public $version = '0.2';
 
 	/**
 	 * @var WooCommerce The single instance of the class
@@ -51,14 +51,8 @@ class SKU_Shortlink_For_WooCommerce {
         $this->define_constant();
         $this->load_required_files();
         $this->init_class();
-        add_action( 'init', array( $this, 'init' ));
-    }
-    
-    /**
-     * Triggers When INIT Action Called
-     */
-    public function init(){
-        add_action('plugins_loaded', array( $this, 'after_plugins_loaded' ));
+
+		add_action('plugins_loaded', array( $this, 'after_plugins_loaded' ));
         add_filter('load_textdomain_mofile',  array( $this, 'load_plugin_mo_files' ), 10, 2);
     }
     

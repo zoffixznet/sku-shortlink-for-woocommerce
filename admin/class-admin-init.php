@@ -15,7 +15,6 @@ class SKU_Shortlink_For_WooCommerce_Admin extends SKU_Shortlink_For_WooCommerce 
         $this->frontend = new SKU_Shortlink_For_WooCommerce_Frontend;
         add_filter( 'plugin_row_meta', array($this, 'plugin_row_links' ), 10, 2 );
         add_action( 'admin_init', array( $this, 'admin_init' ),100);
-        add_action( 'plugins_loaded', array( $this, 'init' ) );
         add_filter( 'woocommerce_get_settings_pages',  array($this,'settings_page') );
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
