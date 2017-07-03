@@ -4,7 +4,6 @@ jQuery(document).ready(function(){
         var id = jQuery(this).val();
         var value = jQuery(this).find(':selected').text();
         jQuery('span#sku_url > #sku_url_adds').html(value);
-        
     });
     
     
@@ -19,4 +18,4 @@ jQuery(document).ready(function(){
     });
     
     
-})
+});

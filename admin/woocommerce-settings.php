@@ -52,7 +52,14 @@ class SKU_Shortlink_For_WooCommerce_Settings extends WC_Settings_Page {
                 'name'     => __( 'Modify Product URL ', SKU_SF_WC_TEXT_DOMAIN ),
                 'id'       => SKU_SF_WC_SLUG.'_modify_product_url',
                 'type'     => 'checkbox',  
-                'desc' => 'if checked all the product urls will be regenerated with the product sku.'
+                'desc' =>  __('if checked all the product urls will be regenerated with the product sku.',SKU_SF_WC_TEXT_DOMAIN)
+            ); 
+            
+            $settings[] = array(
+                'name'     => __( 'Change Product Links in Admin ', SKU_SF_WC_TEXT_DOMAIN ),
+                'id'       => SKU_SF_WC_SLUG.'_admin_modify_product_url',
+                'type'     => 'checkbox',  
+                'desc' => __('if checked all the product urls in admin side will be changed. <strong>Modify Product URL </strong> Should be checked.',SKU_SF_WC_TEXT_DOMAIN)
             ); 
             
             $settings[] = array(

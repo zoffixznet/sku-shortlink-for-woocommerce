@@ -5,10 +5,10 @@ Plugin URL: https://wordpress.org/plugins/sku-shortlink-for-woocommerce/
 Tags: WooCommerce, category, coffee2code, link, permalink, structure,sku link,product sku,product,ecommerce,address, custom, link, permalink, redirect, url,ancestory, ancestory permalinks, breadcrumb permalinks, permalink, permalinks, woocommerce, woocommerce category url,file name, link, links, permalink, permalinks, plugin, post permalink, post slug, search engine, seo, seo slug, slug, slug modify, url, url modifier, wordpress
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9L76L92SD8YAQ
 Requires at least: 3.0
-Tested up to: 4.5
+Tested up to: 5
 WC requires at least: 1.0
-WC tested up to: 2.5
-Stable tag: 0.2
+WC tested up to: 3.1
+Stable tag: 0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -65,6 +65,18 @@ The manual installation method involves downloading our plugin and uploading it 
  
 
 == Changelog ==
+= 0.5 - 26/04/2017 =
+* Minor Bug Fixed
+* Tested With Latest WP & WC
+
+= 0.4 - 07/07/2016 =
+* Fixed minor bug with plugin.
+* added option to modify links in admin side.
+
+= 0.3 - 07/07/2016 =
+* Issue fixed with settings page.
+* Checked with latest WC & WP Version 
+
 = 0.2 - 20/01/2016 = 
 * Minor Bug Fix
 * Updated To Latest WP & WC

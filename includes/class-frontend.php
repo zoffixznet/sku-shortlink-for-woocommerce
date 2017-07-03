@@ -9,8 +9,9 @@ class SKU_Shortlink_For_WooCommerce_Frontend {
             add_action('init',array($this,'custom_rewrite_tag'));
             add_filter('query_vars', array($this,'products_plugin_query_vars'));
             add_action( 'parse_request', array($this,'change_post_per_page_wpent' ),10,99);
-            add_filter('post_type_link',array($this,'change_product_post_link'),10,10);
+            
         }
+        add_filter('post_type_link',array($this,'change_product_post_link'),10,10);
     }
     
     public function custom_rewrite_tag() {
@@ -41,7 +42,7 @@ class SKU_Shortlink_For_WooCommerce_Frontend {
         else{ $posOfSku = 1; $posOfAny=2; }
         
         $custom_link = str_replace('%sku%','([^/]*)/?',$custom_link);
-        $custom_link = str_replace('%any%','([^/]*)/?',$custom_link);
+        $custom_link = str_replace('%any%','([^/]*)/?',$custom_link); 
         add_rewrite_rule($custom_link,'index.php?any_sk=$matches['.$posOfAny.']&product_sku=$matches['.$posOfSku.']','top');
         flush_rewrite_rules();
     }
@@ -56,7 +57,7 @@ class SKU_Shortlink_For_WooCommerce_Frontend {
       return $vars;
      }
 
-    public function change_post_per_page_wpent( $query ) {
+    public function change_post_per_page_wpent( $query ) { 
         if(! $query->matched_query == 'product_sku=sku' ){return $query;}
         if(is_admin()){return $query;}
         
@@ -84,11 +85,21 @@ class SKU_Shortlink_For_WooCommerce_Frontend {
     public function change_product_post_link($link,$post){ 
         
         if(get_option(SKU_SF_WC_SLUG.'_modify_product_url',true) !== 'yes'){return $link;}
+        if(is_admin()){
+            if(get_option(SKU_SF_WC_SLUG.'_admin_modify_product_url',true) !== 'yes'){return $link;}    
+        }
+        
         $sku = get_post_meta($post->ID,'_sku',true);
         $id = $post->ID;
         $postname = $post->post_name;
         $category = wp_get_post_terms($id, 'product_cat');
-        $category = $category[0]->slug;
+        
+        if(!empty($category)){
+            $category = $category[0]->slug;    
+        } else {
+            $category = '';
+        }
+        
         
         if(empty($sku)){return $link;}
         $site_url = trailingslashit(home_url());

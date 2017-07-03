@@ -3,7 +3,7 @@
  * Plugin Name:       SKU Shortlink For WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/SKU-Shortlink-For-WooCommerce/
  * Description:       SKU Shortlink For WooCommerce
- * Version:           0.2
+ * Version:           0.5
  * Author:            Varun Sridharan
  * Author URI:        http://varunsridharan.in
  * Text Domain:       sku-shortlink-for-woocommerce
@@ -18,7 +18,7 @@ class SKU_Shortlink_For_WooCommerce {
 	/**
 	 * @var string
 	 */
-	public $version = '0.2';
+	public $version = '0.5';
 
 	/**
 	 * @var WooCommerce The single instance of the class
@@ -46,7 +46,7 @@ class SKU_Shortlink_For_WooCommerce {
     public function __construct() {
         $link = get_option('woocommerce_permalinks',true);
         $plink = trailingslashit($link['product_base']);
-        $this->url_types = array(0 => $plink.'sku/%sku%/', 1 => $plink.'%sku%/', 2 => '%sku%/', 'custom' => 'custom link');
+        $this->url_types = array(0 => $plink.'sku/%sku%/', 1 => $plink.'%sku%/', 'custom' => 'custom link');
         
         $this->define_constant();
         $this->load_required_files();
@@ -171,4 +171,3 @@ SKU_Shortlink_For_WooCommerce::get_instance();
 function SKUSFWC(){
     return SKU_Shortlink_For_WooCommerce::get_instance();
 }
-?>
