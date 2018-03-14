@@ -94,7 +94,7 @@ class SKU_Shortlink_For_WooCommerce_Frontend {
         $postname = $post->post_name;
         $category = wp_get_post_terms($id, 'product_cat');
         
-        if(!empty($category)){
+        if(!empty($category) && !is_wp_error($category)){
             $category = $category[0]->slug;    
         } else {
             $category = '';
